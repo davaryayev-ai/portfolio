@@ -75,7 +75,7 @@ function initParticles() {
     window.addEventListener('resize', resize);
     document.addEventListener('mousemove', (e) => { mx = e.clientX; my = e.clientY; });
 
-    const COUNT = Math.min(50, Math.floor(window.innerWidth / 28));
+    const COUNT = window.innerWidth < 768 ? Math.min(12, Math.floor(window.innerWidth / 40)) : Math.min(50, Math.floor(window.innerWidth / 28));
 
     class P {
         constructor() { this.reset(); }
@@ -210,26 +210,32 @@ function initCases() {
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
 }
 
-function getEmbedUrl(url) {
+function getVideoId(url) {
     if (!url) return '';
-    // youtu.be/VIDEO_ID
     let m = url.match(/youtu\.be\/([a-zA-Z0-9_-]+)/);
-    if (m) return `https://www.youtube.com/embed/${m[1]}`;
-    // youtube.com/watch?v=VIDEO_ID
+    if (m) return m[1];
     m = url.match(/[?&]v=([a-zA-Z0-9_-]+)/);
-    if (m) return `https://www.youtube.com/embed/${m[1]}`;
-    // already embed
-    if (url.includes('/embed/')) return url;
-    return url;
+    if (m) return m[1];
+    m = url.match(/embed\/([a-zA-Z0-9_-]+)/);
+    if (m) return m[1];
+    return '';
 }
 
 function openModal(c) {
     const overlay = document.getElementById('modal-overlay');
     const modal = overlay.querySelector('.modal');
-    const embedUrl = getEmbedUrl(c.videoUrl);
-    const vid = embedUrl
-        ? `<div class="modal-video"><iframe src="${embedUrl}" allowfullscreen></iframe></div>`
-        : `<div class="modal-video"><div class="modal-video-placeholder"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg><span>Видео скоро будет добавлено</span></div></div>`;
+    const videoId = getVideoId(c.videoUrl);
+    let vid;
+    if (videoId) {
+        const thumb = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+        vid = `<div class="modal-video video-lite" data-video-id="${videoId}" style="background-image:url(${thumb})">
+            <button class="video-play-btn" aria-label="Play video">
+                <svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55C3.97 2.33 2.27 4.81 1.48 7.74.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#FF0000"/><path d="M45 24L27 14v20" fill="#fff"/></svg>
+            </button>
+        </div>`;
+    } else {
+        vid = `<div class="modal-video"><div class="modal-video-placeholder"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg><span>Видео скоро будет добавлено</span></div></div>`;
+    }
     const res = c.results?.length ? `<h4>Результаты</h4><div class="modal-results">${c.results.map(r => `<div class="modal-result-card"><div class="modal-result-value">${r.value}</div><div class="modal-result-label">${r.label}</div></div>`).join('')}</div>` : '';
 
     modal.innerHTML = `
@@ -242,6 +248,16 @@ function openModal(c) {
     <div class="modal-body"><h4>Описание</h4><p>${c.fullDesc}</p>${res}</div>`;
     overlay.classList.add('active');
     document.body.style.overflow = 'hidden';
+
+    // Lite embed: load iframe on play click
+    const lite = modal.querySelector('.video-lite');
+    if (lite) {
+        lite.addEventListener('click', function () {
+            const id = this.dataset.videoId;
+            this.innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1" allowfullscreen allow="autoplay; encrypted-media"></iframe>`;
+            this.classList.add('video-active');
+        });
+    }
 }
 
 function closeModal() {

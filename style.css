@@ -705,6 +705,56 @@ section {
   stroke-width: 1.5;
 }
 
+/* YouTube Lite Embed */
+.video-lite {
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.video-lite::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  transition: background 0.3s;
+}
+
+.video-lite:hover::before {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.video-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1;
+  transition: transform 0.2s, opacity 0.2s;
+  opacity: 0.9;
+}
+
+.video-lite:hover .video-play-btn {
+  transform: translate(-50%, -50%) scale(1.1);
+  opacity: 1;
+}
+
+.video-lite.video-active {
+  background-image: none !important;
+}
+
+.video-lite.video-active::before {
+  display: none;
+}
+
+.video-lite.video-active .video-play-btn {
+  display: none;
+}
+
 .modal-body h4 {
   font-size: 1rem;
   margin-bottom: 10px;
