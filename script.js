@@ -210,11 +210,25 @@ function initCases() {
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
 }
 
+function getEmbedUrl(url) {
+    if (!url) return '';
+    // youtu.be/VIDEO_ID
+    let m = url.match(/youtu\.be\/([a-zA-Z0-9_-]+)/);
+    if (m) return `https://www.youtube.com/embed/${m[1]}`;
+    // youtube.com/watch?v=VIDEO_ID
+    m = url.match(/[?&]v=([a-zA-Z0-9_-]+)/);
+    if (m) return `https://www.youtube.com/embed/${m[1]}`;
+    // already embed
+    if (url.includes('/embed/')) return url;
+    return url;
+}
+
 function openModal(c) {
     const overlay = document.getElementById('modal-overlay');
     const modal = overlay.querySelector('.modal');
-    const vid = c.videoUrl
-        ? `<div class="modal-video"><iframe src="${c.videoUrl}" allowfullscreen></iframe></div>`
+    const embedUrl = getEmbedUrl(c.videoUrl);
+    const vid = embedUrl
+        ? `<div class="modal-video"><iframe src="${embedUrl}" allowfullscreen></iframe></div>`
         : `<div class="modal-video"><div class="modal-video-placeholder"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg><span>Видео скоро будет добавлено</span></div></div>`;
     const res = c.results?.length ? `<h4>Результаты</h4><div class="modal-results">${c.results.map(r => `<div class="modal-result-card"><div class="modal-result-value">${r.value}</div><div class="modal-result-label">${r.label}</div></div>`).join('')}</div>` : '';
 
