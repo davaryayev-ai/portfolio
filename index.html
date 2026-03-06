@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Давид — AI Интеграции для бизнеса | Астана</title>
+  <meta name="description"
+    content="Автоматизирую бизнес с помощью ИИ. Чат-боты, AI-агенты, парсеры — решения, которые работают. Астана.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="hero-text">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        Открыт для новых проектов
+      </div>
+      <h1>Автоматизирую бизнес<br>с помощью ИИ</h1>
+      <div class="hero-rotating-wrapper"></div>
+      <p class="hero-description">
+        Делаю так, чтобы ваш бизнес работал, пока вы отдыхаете.
+        Чат-боты, AI-агенты, парсеры — решения, которые реально
+        экономят время и приносят деньги.
+      </p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn-primary">
+          Обсудить проект
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 17L17 7M17 7H7M17 7V17" />
+          </svg>
+        </a>
+        <a href="#cases" class="btn-secondary">
+          Смотреть кейсы
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-photo">
+      <img src="david-photo.png" alt="Давид — AI специалист, Астана">
+      <div class="hero-photo-tag">
+        <span class="dot"></span>
+        Астана, Казахстан
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="about" id="about">
+    <div class="section-container">
+      <div class="reveal">
+        <span class="section-label">● Обо мне</span>
+        <h2 class="section-title">Давид из <span class="gradient-text">Астаны</span></h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-avatar reveal reveal-delay-1">
+          <img src="my-photo.png" alt="Давид" style="width:100%; height:100%; object-fit:cover; border-radius:22px;">
+        </div>
+
+        <div class="about-text reveal reveal-delay-2">
+          <h3>AI-интегратор и разработчик</h3>
+          <p>
+            Привет! Я Давид, специалист по интеграции искусственного интеллекта в бизнес.
+            Помогаю компаниям внедрять AI-решения, которые реально работают: чат-боты для
+            поддержки и продаж, AI-агенты для автоматизации рутины, парсеры данных.
+          </p>
+          <p>
+            Мой подход — не просто «поставить бота», а разобраться в вашем бизнесе
+            и создать решение, которое сэкономит время и увеличит прибыль.
+          </p>
+
+          <div class="about-stats">
+            <div class="stat-card">
+              <div class="stat-number" data-count="10" data-suffix="+">0</div>
+              <div class="stat-label">Готовых решений</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number" data-count="15" data-suffix="+">0</div>
+              <div class="stat-label">Интеграций в стеке</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number" data-suffix="">24/7</div>
+              <div class="stat-label">Автоматизация</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CASES ===== -->
+  <section class="cases" id="cases">
+    <div class="section-container">
+      <div class="reveal">
+        <span class="section-label">● Портфолио</span>
+        <h2 class="section-title">Мои <span class="gradient-text">кейсы</span></h2>
+        <p class="section-subtitle">Каждый проект — рабочее AI-решение. Нажмите на карточку, чтобы узнать подробности.
+        </p>
+      </div>
+      <div class="cases-grid" id="cases-grid"></div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section class="services" id="services">
+    <div class="section-container">
+      <div class="reveal">
+        <span class="section-label">● Услуги</span>
+        <h2 class="section-title">Чем я могу <span class="gradient-text">помочь</span></h2>
+        <p class="section-subtitle">Полный спектр AI-решений для вашего бизнеса.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-icon"><svg viewBox="0 0 24 24">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg></div>
+          <h3 class="service-title">Чат-боты</h3>
+          <p class="service-desc">Умные боты для Telegram, WhatsApp и сайта. От FAQ до сложных AI-сценариев.</p>
+        </div>
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-icon"><svg viewBox="0 0 24 24">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+            </svg></div>
+          <h3 class="service-title">AI-агенты</h3>
+          <p class="service-desc">Автономные агенты, которые выполняют задачи без человека — 24/7.</p>
+        </div>
+        <div class="service-card reveal reveal-delay-3">
+          <div class="service-icon"><svg viewBox="0 0 24 24">
+              <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" />
+              <path d="M12 12v9" />
+              <path d="m8 17 4 4 4-4" />
+            </svg></div>
+          <h3 class="service-title">Интеграция AI</h3>
+          <p class="service-desc">Внедрение ИИ в CRM, 1С, и другие системы.</p>
+        </div>
+        <div class="service-card reveal reveal-delay-4">
+          <div class="service-icon"><svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 16v-4" />
+              <path d="M12 8h.01" />
+            </svg></div>
+          <h3 class="service-title">Консультации</h3>
+          <p class="service-desc">Аудит процессов и стратегия внедрения AI в ваш бизнес.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROCESS ===== -->
+  <section class="process" id="process">
+    <div class="section-container">
+      <div class="reveal">
+        <span class="section-label">● Процесс</span>
+        <h2 class="section-title">Как я <span class="gradient-text">работаю</span></h2>
+        <p class="section-subtitle">Прозрачный процесс от идеи до результата.</p>
+      </div>
+
+      <div class="process-timeline">
+        <div class="process-step reveal reveal-delay-1">
+          <div class="step-number">01</div>
+          <div>
+            <h3 class="step-title">Анализ</h3>
+            <p class="step-desc">Изучаю ваш бизнес и нахожу, где AI даст максимум.</p>
+          </div>
+        </div>
+        <div class="process-step reveal reveal-delay-2">
+          <div class="step-number">02</div>
+          <div>
+            <h3 class="step-title">Прототип</h3>
+            <p class="step-desc">Рабочий прототип за 3–5 дней.</p>
+          </div>
+        </div>
+        <div class="process-step reveal reveal-delay-3">
+          <div class="step-number">03</div>
+          <div>
+            <h3 class="step-title">Разработка</h3>
+            <p class="step-desc">Полноценное решение с интеграциями.</p>
+          </div>
+        </div>
+        <div class="process-step reveal reveal-delay-4">
+          <div class="step-number">04</div>
+          <div>
+            <h3 class="step-title">Тестирование</h3>
+            <p class="step-desc">Все сценарии, нагрузки и крайние случаи.</p>
+          </div>
+        </div>
+        <div class="process-step reveal reveal-delay-5">
+          <div class="step-number">05</div>
+          <div>
+            <h3 class="step-title">Запуск</h3>
+            <p class="step-desc">Деплой, обучение команды и поддержка.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="contact" id="contact">
+    <div class="section-container">
+      <div class="reveal">
+        <span class="section-label">● Контакты</span>
+        <h2 class="section-title">Готовы <span class="gradient-text">автоматизировать</span><br>ваш бизнес?</h2>
+        <p class="section-subtitle">Напишите мне — первая консультация бесплатно.</p>
+      </div>
+
+      <div class="contact-buttons reveal reveal-delay-1">
+        <a href="https://t.me/namacci" target="_blank" class="btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
+          </svg>
+          Написать в Telegram
+        </a>
+        <a href="https://wa.me/77757550435" target="_blank" class="btn-secondary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" />
+          </svg>
+          WhatsApp
+        </a>
+      </div>
+
+      <div class="contact-info reveal reveal-delay-2">
+        <a href="https://t.me/namacci" target="_blank" class="contact-item">
+          <svg viewBox="0 0 24 24">
+            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+          </svg>
+          @namacci
+        </a>
+        <a href="https://wa.me/77757550435" target="_blank" class="contact-item">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+          </svg>
+          +7 775 755 04 35
+        </a>
+        <a href="mailto:dav.aryayev@gmail.com" class="contact-item">
+          <svg viewBox="0 0 24 24">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <polyline points="22,6 12,13 2,6" />
+          </svg>
+          dav.aryayev@gmail.com
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2025 Давид. AI-интеграции для бизнеса. Астана, Казахстан.</p>
+  </footer>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal"></div>
+  </div>
+
+  <!-- FLOATING NAV -->
+  <nav class="floating-nav">
+    <a href="#hero" class="active">Главная</a>
+    <a href="#about">Обо мне</a>
+    <a href="#cases">Кейсы</a>
+    <a href="#services">Услуги</a>
+    <a href="#process">Процесс</a>
+    <a href="#contact">Контакты</a>
+  </nav>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
